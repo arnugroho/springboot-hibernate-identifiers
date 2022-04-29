@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(name = "/autogeneration")
+@RequestMapping("/autogeneration")
 public class AutoGenerationController {
     private final DepartemenRepository departemenRepository;
     private final FakultasRepository fakultasRepository;
@@ -26,21 +26,21 @@ public class AutoGenerationController {
         this.mahasiswaRepository = mahasiswaRepository;
     }
 
-    @PostMapping(name = "/insert-departemen")
+    @PostMapping("/insert-departemen")
     public ResponseEntity insertDepartemen(@RequestBody Departemen departemen){
         departemenRepository.save(departemen);
-        return new ResponseEntity("Berhasil Insert Data Departemen", HttpStatus.OK);
+        return new ResponseEntity(departemen, HttpStatus.OK);
     }
 
-    @PostMapping(name = "/insert-fakultas")
+    @PostMapping("/insert-fakultas")
     public ResponseEntity insertFakultas(@RequestBody Fakultas fakultas){
         fakultasRepository.save(fakultas);
-        return new ResponseEntity("Berhasil Insert Data Fakultas", HttpStatus.OK);
+        return new ResponseEntity(fakultas, HttpStatus.OK);
     }
 
-    @PostMapping(name = "/insert-mahasiswa")
+    @PostMapping("/insert-mahasiswa")
     public ResponseEntity insertMahasiswa(@RequestBody Mahasiswa mahasiswa){
         mahasiswaRepository.save(mahasiswa);
-        return new ResponseEntity("Berhasil Insert Data Mahasiswa", HttpStatus.OK);
+        return new ResponseEntity(mahasiswa, HttpStatus.OK);
     }
 }
