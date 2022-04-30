@@ -8,7 +8,7 @@ public class Mahasiswa {
 
     @Id
     @GeneratedValue(generator = "mahasiswa_sequence")
-    @Column(name = "id_plant")
+    @Column(name = "id_mahasiswa")
     private Long mahasiswaId;
     private String nama;
 
